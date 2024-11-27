@@ -23,9 +23,9 @@ let score = 0;
 let scoreText;
 
 function preload() {
-    this.load.image('ground', 'assets/ground.png');
-    this.load.image('player', 'assets/player.png');
-    this.load.image('obstacle', 'assets/obstacle.png');
+    this.load.image('ground', 'assets/images.png');
+    this.load.image('player', 'assets/images - 2024-11-27T190526.273.jpeg');
+    this.load.image('obstacle', 'assets/images - 2024-11-27T190401.597.jpeg');
 }
 
 function create() {
