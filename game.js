@@ -42,7 +42,15 @@ function create() {
     this.physics.add.collider(player, platforms);
 
     // Create obstacles
-    obstacles = this.physics.add.group();
+    obstacles = this.physics.add.group({
+        key: 'obstacle',
+        repeat: 5,
+        setXY: { x: 400, y: 0, stepX: 70 }
+    });
+
+    obstacles.children.iterate(function (child) {
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+    });
 
     this.time.addEvent({
         delay: 1500,
