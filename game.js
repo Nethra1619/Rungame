@@ -23,9 +23,9 @@ let score = 0;
 let scoreText;
 
 function preload() {
-    this.load.image('ground', 'assets/images.png');
-    this.load.image('player', 'assets/images - 2024-11-27T190526.273.jpeg');
-    this.load.image('obstacle', 'assets/images - 2024-11-27T190401.597.jpeg');
+    this.load.image('ground', 'assets/images.png'); // Use your ground image
+    this.load.image('player', 'assets/images - 2024-11-27T190526.273.jpeg'); // Use your player image
+    this.load.image('obstacle', 'assets/images - 2024-11-27T190401.597.jpeg'); // Use your obstacle image
 }
 
 function create() {
@@ -42,15 +42,7 @@ function create() {
     this.physics.add.collider(player, platforms);
 
     // Create obstacles
-    obstacles = this.physics.add.group({
-        key: 'obstacle',
-        repeat: 5,
-        setXY: { x: 400, y: 0, stepX: 70 }
-    });
-
-    obstacles.children.iterate(function (child) {
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-    });
+    obstacles = this.physics.add.group();
 
     this.time.addEvent({
         delay: 1500,
@@ -96,6 +88,5 @@ function update() {
 function gameOver(player, obstacle) {
     this.physics.pause();
     player.setTint(0xff0000);
-    player.anims.play('turn');
     scoreText.setText('Game Over!');
 }
