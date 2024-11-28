@@ -4,7 +4,7 @@ const config = {
     height: 600,
     physics: {
         default: 'arcade',
-        arcade: { gravity: { y: 500 }, debug: false }
+        arcade: { gravity: { y: 300 }, debug: false }
     },
     scene: {
         preload: preload,
@@ -23,18 +23,18 @@ let score = 0;
 let scoreText;
 
 function preload() {
-    this.load.image('ground', 'assets/images.png'); // Use your ground image
-    this.load.image('player', 'assets/images - 2024-11-27T190526.273.jpeg'); // Use your player image
-    this.load.image('obstacle', 'assets/images - 2024-11-27T190401.597.jpeg'); // Use your obstacle image
+    this.load.image('ground', 'assets/images.png'); // Your ground image
+    this.load.image('player', 'assets/images - 2024-11-27T190526.273.jpeg'); // Your player image
+    this.load.image('obstacle', 'assets/images - 2024-11-27T190401.597.jpeg'); // Your obstacle image
 }
 
 function create() {
     // Create platforms (ground)
     platforms = this.physics.add.staticGroup();
-    platforms.create(400, 580, 'ground').setScale(2).refreshBody();
+    platforms.create(400, 588, 'ground').setScale(2).refreshBody();
 
     // Create player
-    player = this.physics.add.sprite(100, 450, 'player').setScale(0.5);
+    player = this.physics.add.sprite(100, 450, 'player').setScale(0.2);
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
 
